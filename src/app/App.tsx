@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import { Route, Routes } from "react-router-dom";
 import { useThemeResult } from "./providers/ThemeProvider";
 import './styles/index.scss'
+import { AppRouter } from "./providers/router";
 
 
 const App =()=>{
@@ -17,12 +18,7 @@ const App =()=>{
       <button onClick={toggleTheme} type="button">TOGGLE</button>
       <Link to="/">Главная</Link>
       <Link to="/about">О сайте</Link>
-      <Suspense fallback={<div>Loading...</div>}>
-        <Routes>
-          <Route path={'/about'} element={<AboutPage/>}/>
-          <Route path={'/'} element={<MainPage/>}/>
-        </Routes>
-      </Suspense>
+      <AppRouter/>
     </div>
   )
 }
