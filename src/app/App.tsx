@@ -4,19 +4,21 @@ import './styles/index.scss'
 import { AppRouter } from "./providers/router";
 import { Navbar } from "widgets/Navbar";
 import { Sidebar } from "widgets/Sidebar";
+import { Suspense } from "react";
 
-
-const App =()=>{
+const App = () =>{
  
-  const {theme,} = useThemeResult()
+  const {theme} = useThemeResult()
   
   return (
     <div className={classNames('app', {}, [theme])}>
-      <Navbar/>
-      <div className="content-page">
-        <Sidebar/>
-        <AppRouter/>
-      </div>
+      <Suspense fallback="">
+        <Navbar/>
+        <div className="content-page">
+          <Sidebar/>
+          <AppRouter/>
+        </div>
+      </Suspense>
     </div>
   )
 }
