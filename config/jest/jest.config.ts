@@ -65,9 +65,14 @@ export default {
 
     // An array of directory names to be searched recursively up from the requiring module's location
     moduleDirectories: ['node_modules'],
+    modulePaths: ['<rootDir>src'],
 
     // An array of file extensions your modules use
     moduleFileExtensions: ['js', 'jsx', 'ts', 'tsx', 'json', 'node'],
+
+    moduleNameMapper: {
+        '\\.s?css$': 'identity-obj-proxy',
+    },
 
     // A map from regular expressions to module names or to arrays of module names that allow to stub out resources with a single module
     // moduleNameMapper: {},
