@@ -12,8 +12,12 @@
         "lint:ts:fix": " eslint \"**/*.{ts,tsx}\" --fix",
         "lint:scss": "stylelint \"**/*.scss\"",
         "lint:scss:fix": "stylelint \"**/*.scss\" --fix",
-        "storybook": "start-storybook -p 6060 -c ./config/storybook --no-manager-cache",
-        "build-storybook": "build-storybook -c ./config/storybook"
+        "test:unit": "jest --config ./config/jest/jest.config.ts",
+        "test:ui": "npx loki test",
+        "test:ui:ok": "npx loki approve",
+        "test:ui:ci": "loki --requireReference --reactUri file:./storybook-static",
+        "storybook": "start-storybook -p 6006 -c ./config/storybook",
+        "storybook:build": "build-storybook -c ./config/storybook"
     },
     "keywords": [],
     "author": "",
